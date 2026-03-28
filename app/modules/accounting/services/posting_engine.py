@@ -2,33 +2,41 @@ from decimal import Decimal
 from datetime import datetime
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.modules.accounting.models.journal import JournalEntry, JournalEntryLine
 from app.modules.accounting.models.ledger import LedgerEntry
 from app.modules.accounting.models.balance import AccountBalance
-from app.common.exceptions import ValidationError
+
 
 def _to_decimal(value) -> Decimal:
     if value is None:
         return Decimal("0")
     return Decimal(str(value))
 
+
 async def post_journal_entry(db: AsyncSession, journal_entry_id: int) -> JournalEntry:
     result = await db.execute(select(JournalEntry).where(JournalEntry.id == journal_entry_id))
     journal_entry = result.scalar_one_or_none()
-    if not journal_entry:
-        raise ValidationError("Journal entry not found.")
-    if journal_entry.status != "APPROVED":
-        raise ValidationError("Only APPROVED journal entries can be posted.")
 
-    lines_result = await db.execute(select(JournalEntryLine).where(JournalEntryLine.journal_entry_id == journal_entry.id))
+    if not journal_entry:
+        raise Exception("Journal entry not found.")
+
+    if journal_entry.status != "APPROVED":
+        raise Exception("Only APPROVED journal entries can be posted.")
+
+    lines_result = await db.execute(
+        select(JournalEntryLine).where(JournalEntryLine.journal_entry_id == journal_entry.id)
+    )
     lines = list(lines_result.scalars().all())
+
     if not lines:
-        raise ValidationError("Journal entry has no lines.")
+        raise Exception("Journal entry has no lines.")
 
     total_debit = sum((_to_decimal(line.debit) for line in lines), Decimal("0"))
     total_credit = sum((_to_decimal(line.credit) for line in lines), Decimal("0"))
+
     if total_debit != total_credit:
-        raise ValidationError("Journal entry is not balanced.")
+        raise Exception("Journal entry is not balanced.")
 
     for line in lines:
         ledger_entry = LedgerEntry(
@@ -62,6 +70,7 @@ async def post_journal_entry(db: AsyncSession, journal_entry_id: int) -> Journal
             )
         )
         balance = bal_result.scalar_one_or_none()
+
         if not balance:
             balance = AccountBalance(
                 account_id=line.account_id,
@@ -79,8 +88,10 @@ async def post_journal_entry(db: AsyncSession, journal_entry_id: int) -> Journal
         balance.closing_balance = _to_decimal(balance.debit_total) - _to_decimal(balance.credit_total)
 
     journal_entry.status = "POSTED"
+
     if hasattr(journal_entry, "posted_at"):
         journal_entry.posted_at = datetime.utcnow()
+
     await db.commit()
     await db.refresh(journal_entry)
     return journal_entry
