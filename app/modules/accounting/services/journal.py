@@ -20,7 +20,8 @@ from app.modules.accounting.models.dimensions import (
 )
 from app.modules.accounting.models.entities import Branch, LegalEntity
 from app.modules.accounting.models.fiscal import FiscalYear
-from app.modules.accounting.models.journal import JournalEntry, JournalEntryLine, LedgerEntry
+from app.modules.accounting.models.journal import JournalEntry, JournalEntryLine
+from app.modules.accounting.models.ledger import LedgerEntry
 from app.modules.accounting.models.subledgers import BankAccount, Customer, FixedAsset, Vendor
 from app.modules.accounting.models.vouchers import VoucherType
 from app.modules.accounting.schemas.journal import JournalEntryCreate
