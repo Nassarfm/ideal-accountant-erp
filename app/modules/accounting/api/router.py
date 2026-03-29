@@ -18,7 +18,8 @@ from app.modules.accounting.models.dimensions import (
 )
 from app.modules.accounting.models.entities import Branch, LegalEntity
 from app.modules.accounting.models.fiscal import FiscalYear
-from app.modules.accounting.models.journal import JournalEntry, LedgerEntry
+from app.modules.accounting.models.journal import JournalEntry
+from app.modules.accounting.models.ledger import LedgerEntry
 from app.modules.accounting.models.vouchers import DocumentSequence, VoucherType
 from app.modules.accounting.schemas.accounts import AccountCreate, AccountRead, AccountRulesUpdate, AccountTreeNodeRead
 from app.modules.accounting.schemas.dimensions import DimensionDefinitionRead, DimensionValueCreate, DimensionValueRead
