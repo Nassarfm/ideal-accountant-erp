@@ -65,18 +65,18 @@ class JournalEntryLineRead(ORMBaseSchema):
 
 class JournalEntryRead(ORMBaseSchema):
     id: int
-    entry_number: str
-    voucher_type_id: int | None
+    entry_number: str | None = None
+    voucher_type_id: int | None = None
     fiscal_year_id: int
     entry_date: date
-    reference: str | None
-    currency_code: str | None
-    description: str | None
+    reference: str | None = None
+    currency_code: str | None = None
+    description: str | None = None
     status: JournalEntryStatus
-    created_at: datetime
+    created_at: datetime | None = None
     approved_at: datetime | None = None
     posted_at: datetime | None = None
-    lines: list[JournalEntryLineRead]
+    lines: list[JournalEntryLineRead] = []
 
 
 class LedgerEntryRead(ORMBaseSchema):

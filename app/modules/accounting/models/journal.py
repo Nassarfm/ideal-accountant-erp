@@ -30,11 +30,10 @@ class JournalEntry(Base):
         cascade="all, delete-orphan",
     )
 
-    ledger_entries = relationship(
-        "app.modules.accounting.models.ledger.LedgerEntry",
-        foreign_keys="app.modules.accounting.models.ledger.LedgerEntry.journal_entry_id",
-        cascade="all, delete-orphan",
-    )
+    # تم حذف ledger_entries relationship مؤقتًا
+    # لأن جدول ledger_entries الحالي لا يحتوي ForeignKey فعلي
+    # ومع وجود relationship بدون FK يحصل:
+    # sqlalchemy.exc.NoForeignKeysError
 
 
 class JournalEntryLine(Base):
@@ -44,14 +43,19 @@ class JournalEntryLine(Base):
     id = Column(Integer, primary_key=True, index=True)
     journal_entry_id = Column(Integer, ForeignKey("journal_entries.id", ondelete="CASCADE"), nullable=False, index=True)
 
+    line_number = Column(Integer, nullable=False)
+
+    legal_entity_id = Column(Integer, ForeignKey("legal_entities.id", ondelete="RESTRICT"), nullable=False, index=True)
+    branch_id = Column(Integer, ForeignKey("branches.id", ondelete="RESTRICT"), nullable=False, index=True)
+
     account_id = Column(Integer, ForeignKey("accounts.id", ondelete="RESTRICT"), nullable=False, index=True)
-    account_code = Column(String(50), nullable=True, index=True)
-    description = Column(String(500), nullable=True)
 
-    debit = Column(Numeric(18, 2), nullable=False, server_default="0")
-    credit = Column(Numeric(18, 2), nullable=False, server_default="0")
+    line_description = Column("description", String(500), nullable=True)
 
-    subledger_type = Column(String(20), nullable=False, server_default="NONE")
+    debit_amount = Column("debit", Numeric(18, 2), nullable=False, server_default="0")
+    credit_amount = Column("credit", Numeric(18, 2), nullable=False, server_default="0")
+
+    subledger_type = Column(String(50), nullable=False, server_default="NONE")
     subledger_reference = Column(String(100), nullable=True)
 
     cost_center_id = Column(Integer, ForeignKey("cost_centers.id", ondelete="RESTRICT"), nullable=True)

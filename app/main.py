@@ -6,6 +6,9 @@ from app.api.v1.api import api_router
 from app.common.exceptions import ValidationException
 from app.core.config import settings
 
+# ✅ إضافة GL Router
+from app.modules.accounting.api.gl_router import router as gl_router
+
 
 def create_application() -> FastAPI:
     app = FastAPI(
@@ -33,7 +36,12 @@ def create_application() -> FastAPI:
     def root() -> dict[str, str]:
         return {"message": f"{settings.app_name} is running", "docs": "/docs"}
 
+    # ✅ الراوتر الرئيسي
     app.include_router(api_router, prefix=settings.api_v1_prefix)
+
+    # ✅ إضافة General Ledger Router
+    app.include_router(gl_router, prefix=settings.api_v1_prefix)
+
     return app
 
 

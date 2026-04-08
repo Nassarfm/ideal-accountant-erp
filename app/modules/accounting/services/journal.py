@@ -27,6 +27,7 @@ from app.modules.accounting.models.vouchers import VoucherType
 from app.modules.accounting.schemas.journal import JournalEntryCreate
 from app.modules.accounting.services.vouchers import next_document_number
 
+
 DIMENSION_TO_FIELD = {
     DimensionCode.COST_CENTER: "cost_center_id",
     DimensionCode.DEPARTMENT: "department_id",
@@ -191,6 +192,8 @@ def create_journal_entry(db: Session, payload: JournalEntryCreate) -> JournalEnt
         entry_number=entry_number,
         voucher_type_id=payload.voucher_type_id,
         fiscal_year_id=payload.fiscal_year_id,
+        legal_entity_id=payload.lines[0].legal_entity_id,
+        branch_id=payload.lines[0].branch_id,
         entry_date=payload.entry_date,
         reference=payload.reference,
         currency_code=payload.currency_code,
@@ -208,7 +211,7 @@ def create_journal_entry(db: Session, payload: JournalEntryCreate) -> JournalEnt
                 legal_entity_id=line.legal_entity_id,
                 branch_id=line.branch_id,
                 account_id=line.account_id,
-                subledger_type=line.subledger_type,
+                subledger_type=line.subledger_type.value if isinstance(line.subledger_type, SubledgerType) else str(line.subledger_type),
                 subledger_reference=line.subledger_reference,
                 cost_center_id=line.cost_center_id,
                 department_id=line.department_id,

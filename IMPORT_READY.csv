@@ -1,0 +1,345 @@
+﻿code,name_ar,name_en,parent_code,level,account_type,financial_statement_type,normal_balance,is_postable,is_active,requires_subledger,subledger_type,allow_manual_entry,allow_reconciliation
+1,الأصول,Assets,,1,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+11,الأصول المتداولة,Current Assets,1,2,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+1101,النقدية ومافي حكمها,Cash and Cash Equivalents,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+110101,الصناديق النقدية,Cash on hand,1101,4,ASSET,BS,DR,TRUE,TRUE,TRUE,CASH_CUSTODIAN,TRUE,FALSE
+110102,الحسابات البنكية,Bank Accounts,1101,4,ASSET,BS,DR,TRUE,TRUE,TRUE,BANK,TRUE,TRUE
+110103,العهد النثرية,Petty Cash Funds,1101,4,ASSET,BS,DR,TRUE,TRUE,TRUE,PETTY_CASH_HOLDER,TRUE,TRUE
+1102,الذمم المدينة — العملاء,Accounts Receivable,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+110201,ذمم عملاء محليون,AR — Local,1102,4,ASSET,BS,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,TRUE
+110202,ذمم عملاء تصدير,AR — Export,1102,4,ASSET,BS,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,TRUE
+110203,ذمم مدينة - غير مفوترة,AR - Unbilled Revenue,1102,4,ASSET,BS,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,FALSE
+110204,مخصص ديون مشكوك فيها,Allowance — Doubtful Debts,1102,4,ASSET,BS,CR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,TRUE
+1103,المخزون,Inventory,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+110301,استلام البضاعة - مشتريات,Received Material Purchased,1103,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+110302,مخزون مواد خام,Raw Material Inventory,1103,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+110303,مخزون بضاعة تامة الصنع,Manufactured Finished Good Inventory,1103,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+110304,مخزون في المستودعات,Inventory in Warehouse,1103,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+110305,مخصص المخزون,Provision for Inventory,1103,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,TRUE
+1104,مصاريف مدفوعة مقدماً,Prepaid Expenses,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+110401,ايجارات مدفوعه مقدما,Prepaid Rent Expenses,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110402,تأمين مدفوعه مقدما,Prepaid Insurance Expenses,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110403,تأمين طبي مدفوع مقدما,Prepaid Medical Insurance Expenses,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110404,اشتراكات مدفوعه مقدما,Prepaid Licenses Services,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110405,عقود مدفوعه مقدما,Prepaid Contracts Expenses,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110406,ايجارات سكن موظفين,Prepaid Housing for Employees,1104,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+1105,اصول متداولة اخرى,Other Current Assets,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+110501,سلف موظفين,Employees Advances,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,TRUE
+110502,دفعات مقدمة للموردين,Advance to suppliers,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,VENDOR,TRUE,FALSE
+110503,ضريبة القيمة المضافة المدخلة (قابلة للاسترداد),VAT Receivable,1105,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110504,ارصدة مدينة اخرى,Other Receivable,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,CUSTOMER,TRUE,FALSE
+110505,الضمانات البنكية,Letters of Guarantee - L/G,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,LETTER_OF_GUARANTEE,TRUE,FALSE
+110506,الاعتمادات البنكية,Letters of Credit,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,LETTER_OF_CREDIT,TRUE,FALSE
+110507,الفوائد البنكية المؤجلة,Deferred bank interest,1105,4,ASSET,BS,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+110508,الاحتفاظ في العقود,Retention Money,1105,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110509,ايرادات مستحقة,Accrued Revenues,1105,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110510,مطالبات التأمين,Insurance claims,1105,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+110511,تامينات مستردة,Security Deposit,1105,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+1106,المستحق من أطراف ذات علاقة,Due from Related party,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+110601,المستحق من أطراف ذات علاقة,Due from Related party,1106,4,ASSET,BS,DR,TRUE,TRUE,TRUE,RELATED_PARTY,TRUE,FALSE
+1107,حسابات بين الفروع,Inter-Branch Account,11,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+110701,حسابات بين الفروع,Inter-Branch Account,1107,4,ASSET,BS,DR,TRUE,TRUE,TRUE,BRANCH,TRUE,FALSE
+12,الأصول غير المتداولة,Non-Current Assets,1,2,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+1201,الأصول الثابتة — بالتكلفة,Fixed Assets at Cost,12,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+120101,أراضي وعقارات,Land & Real Estate,1201,4,ASSET,BS,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120102,مباني ومستودعات,Buildings & Warehouses,1201,4,ASSET,BS,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120103,آلات ومعدات,Machinery & Equipment,1201,4,ASSET,BS,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120104,سيارات,Vehicles,1201,4,ASSET,BS,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120105,أثاث وأجهزة مكتبية وأجهزة IT,"IT, Furniture & Equipment",1201,4,ASSET,BS,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+1202,مجمع الإهلاك,Accumulated Depreciation,12,3,ASSET,BS,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+120201,مجمع إهلاك — مباني,Acc.Dep. — Buildings,1202,4,ASSET,BS,CR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120202,مجمع إهلاك — آلات ومعدات,Acc.Dep. — Machinery,1202,4,ASSET,BS,CR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120203,مجمع إهلاك — سيارات,Acc.Dep. — Vehicles,1202,4,ASSET,BS,CR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+120204,مجمع إهلاك — أثاث وأجهزة مكتبية وأجهزة IT,Acc.Dep. — IT & Furniture,1202,4,ASSET,BS,CR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+1203,مشاريع تحت التنفيذ,Projects Under Construction,12,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+120301,مشاريع تحت التنفيذ,Projects Under Constructions,1203,4,ASSET,BS,DR,TRUE,TRUE,TRUE,PROJECT,TRUE,FALSE
+120302,مشاريع تحت التنفيذ - الانتهاء,Projects Under Constructions Clearing,1203,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+1204,الأصول غير الملموسة,Intangible Assets,12,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+120401,برامج وتراخيص,Software & Licenses,1204,4,ASSET,BS,DR,TRUE,TRUE,TRUE,INTANGIBLE_ASSET,TRUE,FALSE
+1205,موجودات حق استخدام,Right-of-use assets,12,3,ASSET,BS,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+120501,موجودات حق استخدام,Right-of-use assets,1205,4,ASSET,BS,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+2,الالتزامات,Liabilities,,1,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+21,الالتزامات المتداولة,Current Liabilities,2,2,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+2101,الذمم الدائنة — الموردون,Accounts Payable,21,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+210101,ذمم موردون محليون,AP — Local Suppliers,2101,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,VENDOR,FALSE,TRUE
+210102,ذمم موردون أجانب,AP — Foreign Suppliers,2101,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,VENDOR,FALSE,TRUE
+210103,أوراق دفع,Notes Payable,2101,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210104,التزامات بين الشركات,Intercompany Payables,2101,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+2102,القروض والالتزامات البنكية,Loans & Due to Banks,21,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+210201,تسهيل بنكي — تشغيلي,Bank Facility,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+210202,قروض قصيرة الاجل,Short Term Loans,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,LOAN_ACCOUNT,TRUE,FALSE
+210203,سحب على المكشوف,Bank Over Draft,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+210204,اعادة تمويل قصير الاجل,Short term LC Re -Finance,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+210205,اوراق دفع للبنك,Notes Payable - Banks,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+210206,الجزء المتداول من القروض طويله الاجل,Current Portion of Long term loans,2102,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,LOAN_ACCOUNT,TRUE,FALSE
+2103,المطلوبات المتداولة الاخرى,Other Payable and Accruals,21,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+210301,مصاريف مستحقة,Accrued Expenses,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210302,رواتب وأجور مستحقة,Accrued Salaries,2103,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+210303,مخصص بدل اجازة مستحقة,Accrued Allowance Vacation,2103,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+210304,مخصص تذاكر مستحقة,Accrued Tickets,2103,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+210305,تأمينات اجتماعية مستحقة,Acrud Soical Insurance,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210306,فوائد بنكية مستحقة,Accrued Bank Interest,2103,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+210307,مصاريف نثرية مستحقة السداد,Petty Cash Reimbursement,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210308,صافي الضريبة المستحقة,VAT Payable,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210309,الزكاه المستحقة,Zakat Payable,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210310,الضرائب المستحقة,Tax - Payable,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210311,تأمينات مستردة للغير,Security Deposit,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210312,دفعات مقدمة من العملاء,Advances from Customer,2103,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,CUSTOMER,TRUE,FALSE
+210313,مبالغ قابله للاسترجاع,Refundable Deposit,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210314,مبالغ محصلة غير معروفة,Unidentified Receipts Account,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+210315,مصاريف مستحقة أخرى,Other Accrued Expenses,2103,4,LIABILITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+2104,المستحق لاطراف ذات علاقة,Due to Related party,21,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+210401,المستحق لاطراف ذات علاقة,Due to Related party,2104,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,RELATED_PARTY,TRUE,FALSE
+2105,ضريبة قيمة المضافة,VAT Control,21,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+210501,ضريبة القيمة المضافة المخرجات (مبيعات ),VAT Output,2105,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,VAT_CODE,FALSE,TRUE
+210502,ضريبة القيمة المضافة المدخلات ( المشتريات),VAT Input,2105,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,VAT_CODE,FALSE,TRUE
+210503,حساب تسوية الضريبة,VAT Settlement,2105,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,VAT_CODE,TRUE,TRUE
+22,الالتزامات غير المتداولة,Non-Current Liabilities,2,2,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+2201,قروض طويلة الأجل,Long-term Loans,22,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+220101,قرض بنكي طويل الأجل,Long-term Bank Loan,2201,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,LOAN_ACCOUNT,TRUE,FALSE
+2202,التزامات الموظفين المتعلقة بالمزايا المحددة,Employees' Defined Benefits Liabilities,22,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+220201,مخصص مكافأة نهاية الخدمة,ESB Provision,2202,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+2203,التزامات ايجارية,Lease liabilities,22,3,LIABILITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+220301,التزامات ايجارية,Lease liabilities,2203,4,LIABILITY,BS,CR,TRUE,TRUE,TRUE,RENT_CONTRACT,TRUE,FALSE
+3,حقوق الملكية,Equity,,1,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+31,حقوق الملكية,Equity,3,2,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+3101,رأس المال,Capital,31,3,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+310101,رأس المال,Capital,3101,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+310102,جاري الشريك,Shareholders' current account,3101,4,EQUITY,BS,CR,TRUE,TRUE,TRUE,SHAREHOLDER,TRUE,FALSE
+3102,الارباح المبقاه,Retained Earnings,31,3,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+310201,صافي ربح / خسارة العام,Current Year P&L,3102,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+310202,الارباح المبقاه,Retained Earnings,3102,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+310203,الخسارة الاكتوارية على مكافآت نهاية الخدمة للموظفين,Actuarial loss on employees’ end of service benefits,3102,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+3103,الاحتياطيات,Reserves,31,3,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+310301,الاحتياطي النظامي,Statutory Reserve,3103,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+310302,الاحتياطي الاختياري,Optional Reserve,3103,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+3104,الاحتياطيات اخرى,Other Reserves,31,3,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+310401,احتياطي ترجمة عملات,Foreign Currency Translation Reserve,3104,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+310402,احتياطي تحوطات التدفق النقدي,Cash Flow Hedge Reserve,3104,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+3105,حقوق الاقلية,Minority Interest,31,3,EQUITY,BS,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+310501,حقوق الاقلية,Minority Interest,3105,4,EQUITY,BS,CR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+4,الإيرادات,Revenue,,1,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+41,المبيعات,Sales,4,2,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+4101,المبيعات,Sales,41,3,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+410101,مبيعات نقدية,Cash Sales,4101,4,REVENUE,PL,CR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410102,مبيعات أجلة,Credit Sales,4101,4,REVENUE,PL,CR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410103,مبيعات تصدير,Export Sales,4101,4,REVENUE,PL,CR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410104,مبيعات داخل المجموعه,Intercompany Sales,4101,4,REVENUE,PL,CR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410105,مبيعات منتجات,Product Sales,4101,4,REVENUE,PL,CR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+4102,مردودات ومسموحات المبيعات,Sales Returns and Allowances,41,3,REVENUE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+410201,مرجع مبيعات نقدية,Cash Sales Returns,4102,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410202,مرتجع مبيعات اجلة,Credit Sales Returns,4102,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410203,مرتجع مبيعات االتصدير,Export Sales Returns,4102,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410204,مرتجع مبيعات داحل المجموعه,Intercompany Sales Returns,4102,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410205,مرتجع مبيعات منتجات,Product Sales Returns,4102,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+4103,خصم مبيعات,Sales Discounts,41,3,REVENUE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+410301,خصم مبيعات نقدية,Cash Sales Discounts,4103,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410302,خصم مبيعات اجلة,Credit Sales Discounts,4103,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410303,خصم مبيعات التصدير,Export Sales Discounts,4103,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410304,خصم مبيعات داخل المجموعه,Intercompany Sales Discounts,4103,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+410305,خصم مبيعات منتجات,Product Sales Discounts,4103,4,REVENUE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+42,الايرادات,Revenue,4,2,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+4201,ايراد الخدمات,Service Revenue,42,3,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+420101,ايرادات خدمات المنتجات ( تأجير),Product Service Revenue (Rental),4201,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+420102,ايرادات الخدمات العامة,General Service Revenue,4201,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+420103,ايراد الاشتراكات,Subscription Revenue,4201,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+420104,ايرادات الخدمات المهنية,Professional Service Revenue,4201,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+4202,ايرادات المقاولات,Contracting Revenue,42,3,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+420201,ايراد مشاريع حكومية,Government Projects Revenue,4202,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PROJECT,FALSE,FALSE
+420202,ايراد مشاريع القطاع الخاص,Private Sector Projects Revenue,4202,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PROJECT,FALSE,FALSE
+4203,إيرادات الاستشارات,Consulting Revenue,42,3,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+420301,ايراد رسوم الاستشارة,Consulting Fees Revenue,4203,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+420302,ايراد استشارات إدارية,Management Consulting Revenue,4203,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PRODUCT_SERVICE,FALSE,FALSE
+4204,ايرادات غير مفوترة,Unbilled Revenue,42,3,REVENUE,PL,CR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+420401,ايرادات غير مفوترة,Unbilled Revenue,4204,4,REVENUE,PL,CR,TRUE,TRUE,TRUE,PROJECT,TRUE,FALSE
+5,تكلفة الايرادات,Cost of Revenue,,1,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+51,تكلفة البضاعة المباعة,Cost of Goods Sold,5,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5101,تكلفة البضاعة المباعة,Cost of Goods Sold,51,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+510101,تكلفة البضاعه المباعة النقدية,Cost of Goods Sold - Cash Sales,5101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+510102,تكلفة البضاعه المباعة الاجلة,Cost of Goods Sold - Credit Sales,5101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+510103,تكلفة البضاعه المباعة لشركات الشقيقة,Cost of Goods Sold - Related Parties,5101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,FALSE,FALSE
+5102,تسويات المخزون,Inventory Adjustments,51,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+510201,تكلفة تسويات المخزون,Inventory Adjustment Cost,5102,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+510202,تكلفة تسويات جرد المخزون,Inventory Count Adjustment Cost,5102,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+5103,تكلفة المخزون التالف,Damaged Inventory Cost,51,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+510301,التخلص من البضاعه التالفه ومنتهية الصلاحية,Disposal of Damaged and Expired Goods,5103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+510302,المخزون التالف,Damaged Inventory,5103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+510303,المخزون التالف من مرتجع المبيعات,Damaged Inventory from Sales Returns,5103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+5104,تقيم المخزون,Inventory Valuation,51,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+510401,تخفيض تكلفة المخزون,Inventory Write-Down,5104,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+5105,خصومات المشتريات /تخفيض,Purchase Discounts / Rebates,51,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+510501,حافز الخصومات,Discount Incentives,5105,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+510502,الخصم المكتسب,Discount Earned,5105,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+52,تكلفة الايرادات المقدمة,Cost of Services Rendered,5,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5201,العمالة المباشرة,Direct Labor,52,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5202,تكلفة المواد المباشرة,Direct Materials Cost,52,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5203,التكاليف غير المباشرة,Indirect Costs,52,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5204,تكلفة الخدمات المقدمة,Cost of Services Provided,52,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5205,تكاليف مقاولين الباطن,Subcontractor Costs,52,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+53,تكلفة البضاعة المصنعة,Cost of Manufactured Goods,5,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+5301,تكلفة المواد الخام المباشرة,Direct Raw Materials Cost,53,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+530101,تكلفة مواد خام,Raw Materials Cost,5301,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530102,أجور نقل مواد خام,Raw Materials Freight,5301,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+5302,تكلفة العمالة المباشرة,Direct Labor Cost,53,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+530201,رواتب العمالة المباشرة,Direct Labor Salaries,5302,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530202,أجور إضافية للعمالة,Labor Overtime,5302,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+5303,التكاليف الصناعية غير المباشرة,Manufacturing Overhead,53,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+530301,ايجار المصنع,Factory Rent,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530302,فواتير كهرباء المصنع,Factory Electricity,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530303,فواتير مياه المصنع,Factory Water,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530304,تأمين المصنع,Factory Insurance,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530305,أدوات مستهلكة صناعية,Industrial Consumables,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530306,دهان للمنتج,Product Paint,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530307,بنزين وديزل للمكائن,Gasoline and diesel for machinery,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530308,صيانة المعدات,Equipment maintenance,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+530309,أجور قص ليزر,Laser cutting fees,5303,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6,المصاريف التشغيلية,Operating Expenses,,1,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+61,المصاريف التشغيلية المباشرة,Direct Operating Expenses,6,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+6101,رواتب واجور ومافي حكمها,Wages and Employees’ costs ,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610101,راتب أساسي,Basic Salary ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610102,بدل سكن,Housing Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610103,بدل مواصلات,Transportation Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610104,بدل تعليم,Education Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610105,بدل طعام,Food Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610106,بدل هاتف,Telehone Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610107,اضافي,Over time,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610108,بدلات اخرى,Other Allowance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610109,بدل اجازة,Vacation Allowance ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610110,بدل تذاكر,Ticket Allowance ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610111,بدل نهاية خدمة,End of Service Allowance ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,FALSE,FALSE
+610112,التأمينات الاجتماعية,Social Insurance (GOSI),6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+610113,التأمين الطبي,Medical Insurance,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+610114,مصاريف التأمين,Insurance Expenses ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+610115,فيزا واقامات,Visa & Iqama Fees ,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+610116,خروج وعودة,Exit RE- Entry Fees,6101,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+6102,مكافات وعمولات,Bonus & Commissions,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610201,مكافات وحوافز,Bonus & Incentive,6102,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+610202,عمولات المبيعات,Sales Commissions,6102,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+6103,إيجارات,Rent and Leases,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610301,ايجار المكاتب الرئيسية,Offices Rent,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610302,ايجار مستودعات,Warehouses Rent,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610303,ايجار المعارض,Showroom Rentals,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610304,ايجار مكاتب مبيعات,Sales Offices Rent,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610305,ايجار ارض,Land Rent ,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610306,ايجار سكن عمال,Labour Accommodation Rent ,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+610307,ايجار سيارة,Car Rent,6103,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,RENT_CONTRACT,FALSE,FALSE
+6104,التأمين,Insurance,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610401,تأمين النقد,Cash Insurance,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610402,تأمين خيانه الامانه,Fidelity Insurance,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610403,تأمين جميع المخاطر, All Risk Insurance Expenses,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610404,تأمين السيارات,Car Insurance ,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610405,تامين عام,General Insurance ,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610406,تأمين المعدات الثقيلة,Heavy Equipments Insurance,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+610407,تأمين النقل البري,Transport insurance,6104,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INSURANCE_POLICY,TRUE,FALSE
+6105,فواتير الخدمات والمرافق,Utilities Services ,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610501,فواتير الهاتف,Telephone & Faxes Bills,6105,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,UTILITY_ACCOUNT,TRUE,FALSE
+610502,فواتير الانترنت,Internet Bills,6105,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,UTILITY_ACCOUNT,TRUE,FALSE
+610503,فواتير الكهرباء,Electricity Bills,6105,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,UTILITY_ACCOUNT,TRUE,FALSE
+610504,فواتير المياه,Water bills,6105,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,UTILITY_ACCOUNT,TRUE,FALSE
+6106,صيانة الصيانه وإصلاح,Maintenance & Repairs,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+610601,صيانه المباني,Building Maintenance,6106,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+610602,صيانه المعدات,Equipment maintenance,6106,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+610603,صيانه السيارات وقطع غيار,Cars maintenance & repairs,6106,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+610604,صيانه انظمة الحريق, Fire Fighting Maintenance,6106,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+6107,تقنية المعلومات والأنظمة,IT Systems & Software,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610701,تراخيص البرامج الخاصة بتقنية المعلومات,IT Licenses ,6107,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,SERVICE_PROVIDER,TRUE,FALSE
+610702,خدمات واعمال الخاصة بتقنية المعلومات,IT  Services,6107,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,SERVICE_PROVIDER,TRUE,FALSE
+6108,اجور نقل,Transportation,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+610801,اجور نقل مواد,Transportation Fees,6108,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,VENDOR,TRUE,FALSE
+610802,اجور نقل داخلي بين الفروع,Transportation Fees between Branches,6108,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,VENDOR,TRUE,FALSE
+610803,اجور نقل بضاعه للعملاء,Transportation Fees to Customer,6108,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,VENDOR,TRUE,FALSE
+610804,الشحن والتسليم الخارجي,Outward Freight & Delivery,6108,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,VENDOR,TRUE,FALSE
+6109,مصاريف مكتبية وقرطاسية ومستلزمات,Office Supplies & Stationery,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+610901,أدوات مكتبية,Office stationery,6109,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+610902,أحبار طباعة,Printing inks,6109,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+610903,مطبوعات,Printing,6109,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+610904,اجور بريدية,Postal fees,6109,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6110,مصاريف سفر,Traveling Expenses,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611001,مصاريف رحلات عمل,Business Travel Expenses ,6110,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,EMPLOYEE,TRUE,FALSE
+611002,مصاريف سفر,Travelling,6110,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611003,مصاريف جرد المخزون,Inventory Count expenses,6110,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611004,بدل انتداب سفر,Travel allowance,6110,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6111,الرسوم ومصاريف حكومية,Government Fees Expense,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611101,رسوم واشتراكات حكومية,Subscription Fees,6111,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611102,رسوم تجديد الترخيص, License Renewal Fees,6111,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611103,رسوم تصديقات,Attestation Fees,6111,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611104,رسوم  قضائيه حكومية ,Government court fees,6111,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6112,تسويق وإعلان,Marketing & Advertising,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611201,مصاريف اعلانات,Advertising Expenses,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611202,رسوم التسجيل في المؤتمر والمعارض,Conference Registration Fees,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611203,معارض وفعاليات,Exhibitions & Events,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611204,هدايا وعينات,Gifts & samples,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611205,رسوم ترويجية,Promotional Fees,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611206,عروض ترويجية للمبيعات,Sales promotion,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611207,رسوم إدراج المبيعات,Sales Listing Fees,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611208,رسوم مناقصات مبيعات,Sales Tenders Fees,6112,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6113,مصاريف بنكية,Bank Charges,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611301,رسوم بنكية,Bank Fees,6113,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+611302,رسوم حوالات بنكية,Transfer Charges,6113,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+611303,رسوم بنكية لنقاط البيع,Bank fees for points of sale,6113,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+611304,رسوم فتح اعتمادات بنكية,Bank fees for Issue LC,6113,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+611305,رسوم بنكية للاعتمادات,LC Bank Charges,6113,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6114,مصاريف محروقات وزيوت,Fuel &Oil expenses,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611401,محروقات للسيارات,Car Fuel ,6114,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+611402,زيوت للسيارات,Car Oil,6114,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+611403,محروقات للمعدات,Equipment Fuel ,6114,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+611404,زيوت للمعدات,Equipment Oil ,6114,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,TRUE,FALSE
+6115,تدريب وتطوير,Training & Development,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611501,مصاريف تدريب,Training Expenses,6115,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611502,مصاريف رحلة التدريب,Training Trip Expenses,6115,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6116,الضيافة / الترفيه,Hospitality & Entertainment,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611601,مصاريف ضيافه للمكتب,Entertainment ,6116,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611602,مصاريف اجتماعات ومناسبات,Meeting and event expenses,6116,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611603,مصاريف الحفلات, Party Expenses,6116,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6117,مصاريف النظافة,Cleanliness Expenses,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611701,مصاريف النفايات والحاويات,Waste & Container Expenses,6117,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611702,ادوات مستهلكة,Consumables tools,6117,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611703,نظافة ورش مبيدات حشارات,Cleaning & pesticide ,6117,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611704,طفايات ونظام مكافحة حريق,Fire Fighting System Contracts,6117,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6118,أتعاب مهنية واستشارية وقانونية,Professional & Legal Fees,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+611801,اتعاب مهندية تدقيق,Audit Fees,6118,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611802,رسوم استشارات,Consultancy Fees,6118,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+611803,رسوم قانونية,Legal Fees,6118,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+6119,خدمات وعقود,Services and Contracts,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+611901,استئجار خدمات عمالة,Manpower Services,6119,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,SERVICE_PROVIDER,TRUE,FALSE
+611902,خدمات حراسات امنية,Security Services,6119,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,SERVICE_PROVIDER,TRUE,FALSE
+6120,استهلاك وإهلاك,Depreciation & Amortization,61,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+612001,مصاريف استهلاك المباني,Depreciation- Building ,6120,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+612002,مصاريف استهلاك السيارات,Depreciation- Vehicles ,6120,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+612003,مصاريف استهلاك الاثاث,Depreciation- Furniture,6120,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+612004,مصاريف استهلاك التجهيزات المكتبية,Depreciation- Office Equipment,6120,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+612005,مصاريف استهلاك المعدات,Depreciation - Equipment,6120,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,FIXED_ASSET,FALSE,FALSE
+62,انخفاض القيمة والشطب,Impairment & Write-offs,6,2,EXPENSE,PL,DR,FALSE,TRUE,TRUE,CUSTOMER,TRUE,FALSE
+6201,عكس/(مخصص) الديون المشكوك فيها,Reverse/(provision) for doubtful debts,62,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+620101,مخصصات/عكس الديون المشكوك في تحصيلها,Allowance /reversal for doubtful debts,6201,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,FALSE
+620102,مصاريف شطب الديون,Write-off,6201,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,FALSE
+620103,مصروفات الديون المعدومة,Bad Debt Expense,6201,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,CUSTOMER,FALSE,FALSE
+6202,عكس/(مخصص) البضاعة بطيئة الحركة,Reverse/(dedicated) slow-moving goods,62,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+620201,عكس انخفاض القيمة / (الخسارة) في المخزونات بطيئة الحركة,Impairment reversal / (loss) on Slow Moving inventories ,6202,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+620202,مخصصات/عكس المخزونات بطيئة الحركة,Allowance /reversal  for slow moving inventories ,6202,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,INVENTORY_CATEGORY,FALSE,FALSE
+63,الاعباء المالية,Finance Charges,6,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+6301,فوائد ورسوم قروض,Loan Interest & Fees,63,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,FALSE,FALSE
+630101,فوائد قروض قصيرة الاجل,Interest short term loans,6301,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,LOAN_ACCOUNT,FALSE,FALSE
+630102,فوائد سحب على المكشوف,Overdraft Charges,6301,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+630103,رسوم بنكية ادارية,Bank Management Fees Facilities,6301,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,BANK,TRUE,FALSE
+630104,مصاريف الضمانات البنكية,LG Charges,6301,4,EXPENSE,PL,DR,TRUE,TRUE,TRUE,LETTER_OF_GUARANTEE,FALSE,FALSE
+7,المصاريف الغير تشغيلية,Non-Operating Expenses/Imcome,,1,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+71,ايرادات ومصاريف غير تشغيلية,Other non-operating income and expenses,7,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+7101,ايرادات اخرى,Other Revenue ,71,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+710101,ايرادات اخرى,Other revenue,7101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710102,ايجار تأجير,Rent Income,7101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710103,دخل الفوائد,Interest income,7101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+7102,مصاريف اخرى,Other Expenses,71,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+710201,مصاريف اخرى,Other expenses,7102,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710202,تبرعات ومسؤولية اجتماعية,Donations & CSR,7102,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+7103,المكاسب والخسائر,Gains and losses,71,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+710301,ربح أو خسارة بيع أصول,Disposal of assets gain or loss,7103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710302,ربح أو خسارة بالعملة الأجنبية,Foreign currency gain or loss,7103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710303,الربح والخسارة في سعر الصرف,Gain & loss on Exchange Rate,7103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+710304,ربح أو خسارة الاستثمارات,"Investments gain or loss
+",7103,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+8,زكاة وضريبة,Zakat & Tax,,1,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+81,زكاة وضريبة,Zakat & Tax,8,2,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+8101,زكاة وضريبة,Zakat & Tax,81,3,EXPENSE,PL,DR,FALSE,TRUE,FALSE,NONE,TRUE,FALSE
+810101,مصاريف الزكاه,Zakat Expenses ,8101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
+810102,ضرية الدخل,Tax Income Expense,8101,4,EXPENSE,PL,DR,TRUE,TRUE,FALSE,NONE,TRUE,FALSE
