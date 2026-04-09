@@ -189,3 +189,46 @@ def get_account_tree(db: Session) -> list[dict]:
             roots.append(node)
 
     return roots
+
+
+def generate_next_account_code(db: Session, parent_id: int) -> str:
+    parent = db.get(Account, parent_id)
+    if not parent:
+        raise ValidationException("Parent account not found.")
+
+    if parent.level >= MAX_LEVEL:
+        raise ValidationException(f"Cannot generate child code under a level {MAX_LEVEL} posting account.")
+
+    children_stmt = (
+        select(Account)
+        .where(Account.parent_id == parent_id)
+        .order_by(Account.code)
+    )
+    children = list(db.scalars(children_stmt))
+
+    parent_code = parent.code
+
+    if not children:
+        return f"{parent_code}01"
+
+    suffix_lengths = []
+    suffix_numbers = []
+
+    for child in children:
+        if not child.code.startswith(parent_code):
+            continue
+
+        suffix = child.code[len(parent_code):]
+        if not suffix.isdigit():
+            continue
+
+        suffix_lengths.append(len(suffix))
+        suffix_numbers.append(int(suffix))
+
+    if not suffix_numbers:
+        return f"{parent_code}01"
+
+    suffix_width = max(suffix_lengths) if suffix_lengths else 2
+    next_number = max(suffix_numbers) + 1
+
+    return f"{parent_code}{str(next_number).zfill(suffix_width)}"

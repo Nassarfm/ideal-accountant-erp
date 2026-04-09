@@ -69,4 +69,8 @@ class AccountTreeNodeRead(AccountRead):
     children: list["AccountTreeNodeRead"] = []
 
 
+class AccountCodeGenerateResponse(BaseModel):
+    code: str
+
+
 AccountTreeNodeRead.model_rebuild()

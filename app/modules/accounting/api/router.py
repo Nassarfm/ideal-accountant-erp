@@ -21,14 +21,26 @@ from app.modules.accounting.models.fiscal import FiscalYear
 from app.modules.accounting.models.journal import JournalEntry
 from app.modules.accounting.models.ledger import LedgerEntry
 from app.modules.accounting.models.vouchers import DocumentSequence, VoucherType
-from app.modules.accounting.schemas.accounts import AccountCreate, AccountRead, AccountRulesUpdate, AccountTreeNodeRead
+from app.modules.accounting.schemas.accounts import (
+    AccountCodeGenerateResponse,
+    AccountCreate,
+    AccountRead,
+    AccountRulesUpdate,
+    AccountTreeNodeRead,
+)
 from app.modules.accounting.schemas.dimensions import DimensionDefinitionRead, DimensionValueCreate, DimensionValueRead
 from app.modules.accounting.schemas.entities import BranchCreate, BranchRead, LegalEntityCreate, LegalEntityRead
 from app.modules.accounting.schemas.fiscal import FiscalYearCreate, FiscalYearRead
 from app.modules.accounting.schemas.journal import JournalEntryCreate, JournalEntryRead, LedgerEntryRead
 from app.modules.accounting.schemas.subledgers import SubledgerCreate, SubledgerRead
 from app.modules.accounting.schemas.vouchers import DocumentSequenceRead, VoucherTypeCreate, VoucherTypeRead
-from app.modules.accounting.services.accounts import create_account, get_account_tree, list_accounts, update_account_rules
+from app.modules.accounting.services.accounts import (
+    create_account,
+    generate_next_account_code,
+    get_account_tree,
+    list_accounts,
+    update_account_rules,
+)
 from app.modules.accounting.services.fiscal import create_fiscal_year
 from app.modules.accounting.services.journal import (
     approve_journal_entry,
@@ -145,6 +157,12 @@ def list_accounts_endpoint(db: Session = Depends(get_db)):
 @router.get("/accounts/tree", response_model=list[AccountTreeNodeRead])
 def get_account_tree_endpoint(db: Session = Depends(get_db)):
     return get_account_tree(db)
+
+
+@router.get("/accounts/generate-code", response_model=AccountCodeGenerateResponse)
+def generate_account_code_endpoint(parent_id: int, db: Session = Depends(get_db)):
+    code = generate_next_account_code(db, parent_id)
+    return AccountCodeGenerateResponse(code=code)
 
 
 @router.put("/accounts/{account_id}/rules", response_model=AccountRead)
