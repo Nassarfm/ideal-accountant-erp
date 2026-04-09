@@ -38,6 +38,7 @@ from app.modules.accounting.schemas.vouchers import DocumentSequenceRead, Vouche
 from app.modules.accounting.services.accounts import (
     create_account,
     generate_next_account_code,
+    get_account,
     get_account_tree,
     list_accounts,
     update_account,
@@ -165,6 +166,11 @@ def get_account_tree_endpoint(db: Session = Depends(get_db)):
 def generate_account_code_endpoint(parent_id: int, db: Session = Depends(get_db)):
     code = generate_next_account_code(db, parent_id)
     return AccountCodeGenerateResponse(code=code)
+
+
+@router.get("/accounts/{account_id}", response_model=AccountRead)
+def get_account_endpoint(account_id: int, db: Session = Depends(get_db)):
+    return get_account(db, account_id)
 
 
 @router.put("/accounts/{account_id}", response_model=AccountRead)

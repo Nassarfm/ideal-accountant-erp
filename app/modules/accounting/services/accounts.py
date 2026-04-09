@@ -140,6 +140,17 @@ def create_account(db: Session, payload: AccountCreate) -> Account:
     return account
 
 
+def get_account(db: Session, account_id: int) -> Account:
+    account = db.scalar(
+        select(Account)
+        .options(selectinload(Account.dimension_rules))
+        .where(Account.id == account_id)
+    )
+    if not account:
+        raise ValidationException("Account not found.")
+    return account
+
+
 def update_account(db: Session, account_id: int, payload: AccountUpdate) -> Account:
     account = db.scalar(select(Account).options(selectinload(Account.dimension_rules)).where(Account.id == account_id))
     if not account:
