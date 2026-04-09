@@ -30,6 +30,24 @@ class AccountCreate(BaseModel):
     dimension_rules: list[AccountDimensionRulePayload] = []
 
 
+class AccountUpdate(BaseModel):
+    parent_id: int | None = None
+    code: str = Field(min_length=1, max_length=50, pattern=r"^\d+$")
+    name_ar: str
+    name_en: str
+    level: int = Field(ge=1, le=4)
+    account_type: AccountMainType
+    financial_statement_type: FinancialStatementType
+    normal_balance: NormalBalance
+    is_postable: bool = False
+    requires_subledger: bool = False
+    subledger_type: SubledgerType = SubledgerType.NONE
+    allow_manual_entry: bool = True
+    allow_reconciliation: bool = False
+    is_active: bool = True
+    dimension_rules: list[AccountDimensionRulePayload] = []
+
+
 class AccountRulesUpdate(BaseModel):
     requires_subledger: bool
     subledger_type: SubledgerType = SubledgerType.NONE

@@ -27,6 +27,7 @@ from app.modules.accounting.schemas.accounts import (
     AccountRead,
     AccountRulesUpdate,
     AccountTreeNodeRead,
+    AccountUpdate,
 )
 from app.modules.accounting.schemas.dimensions import DimensionDefinitionRead, DimensionValueCreate, DimensionValueRead
 from app.modules.accounting.schemas.entities import BranchCreate, BranchRead, LegalEntityCreate, LegalEntityRead
@@ -39,6 +40,7 @@ from app.modules.accounting.services.accounts import (
     generate_next_account_code,
     get_account_tree,
     list_accounts,
+    update_account,
     update_account_rules,
 )
 from app.modules.accounting.services.fiscal import create_fiscal_year
@@ -163,6 +165,11 @@ def get_account_tree_endpoint(db: Session = Depends(get_db)):
 def generate_account_code_endpoint(parent_id: int, db: Session = Depends(get_db)):
     code = generate_next_account_code(db, parent_id)
     return AccountCodeGenerateResponse(code=code)
+
+
+@router.put("/accounts/{account_id}", response_model=AccountRead)
+def update_account_endpoint(account_id: int, payload: AccountUpdate, db: Session = Depends(get_db)):
+    return update_account(db, account_id, payload)
 
 
 @router.put("/accounts/{account_id}/rules", response_model=AccountRead)
