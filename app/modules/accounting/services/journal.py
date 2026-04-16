@@ -248,7 +248,8 @@ def get_journal_entry(db: Session, journal_entry_id: int) -> JournalEntry:
 def list_journal_entries(db: Session) -> list[JournalEntry]:
     stmt = (
         select(JournalEntry)
-        .options(selectinload(JournalEntry.lines), selectinload(JournalEntry.ledger_entries))
+        # Load only lines; ledger entries are not eagerly loaded to avoid attribute errors
+        .options(selectinload(JournalEntry.lines))
         .order_by(JournalEntry.id.desc())
     )
     return list(db.scalars(stmt).unique())

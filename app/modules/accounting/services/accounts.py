@@ -1,3 +1,11 @@
+"""
+This file mirrors the existing ``accounts.py`` service from ``app/modules/accounting/services``
+and introduces a new helper function for searching accounts.  It contains all
+original functionality plus the ``search_accounts`` function appended at the
+end.  To integrate this patch, replace the original ``accounts.py`` in your
+project with this version.
+"""
+
 from __future__ import annotations
 
 from sqlalchemy import select
@@ -329,3 +337,28 @@ def generate_next_account_code(db: Session, parent_id: int) -> str:
     next_number = max(suffix_numbers) + 1
 
     return f"{parent_code}{str(next_number).zfill(suffix_width)}"
+
+
+def search_accounts(db: Session, query: str, limit: int = 10) -> list[Account]:
+    """Search accounts whose code or names contain the given query.
+
+    Args:
+        db: Database session.
+        query: Partial string to search for in account code or names.
+        limit: Maximum number of results to return.
+
+    Returns:
+        A list of matching ``Account`` objects.
+    """
+    pattern = f"%{query}%"
+    stmt = (
+        select(Account)
+        .where(
+            (Account.code.ilike(pattern))
+            | (Account.name_en.ilike(pattern))
+            | (Account.name_ar.ilike(pattern))
+        )
+        .order_by(Account.code)
+        .limit(limit)
+    )
+    return list(db.scalars(stmt))

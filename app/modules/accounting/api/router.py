@@ -1,8 +1,15 @@
+"""
+This file mirrors the existing ``router.py`` from ``app/modules/accounting/api`` and adds
+a new endpoint for searching accounts by code or name.  It also imports the
+necessary helper and FastAPI Query class.  Replace the original router with
+this one to enable account auto‑complete functionality.
+"""
+
 from __future__ import annotations
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 
 from app.db.session import get_db
 from app.modules.accounting.models.accounts import Account
@@ -43,6 +50,7 @@ from app.modules.accounting.services.accounts import (
     list_accounts,
     update_account,
     update_account_rules,
+    search_accounts,
 )
 from app.modules.accounting.services.fiscal import create_fiscal_year
 from app.modules.accounting.services.journal import (
@@ -58,6 +66,7 @@ from app.modules.accounting.services.subledgers import SUBLEDGER_ENDPOINT_MAP, c
 from app.modules.accounting.services.vouchers import create_voucher_type, list_document_sequences, list_voucher_types
 
 router = APIRouter(prefix="/accounting", tags=["Accounting Core"])
+
 
 DIMENSION_ENDPOINT_MAP = {
     "cost-centers": CostCenter,
@@ -106,11 +115,13 @@ for path, model in DIMENSION_ENDPOINT_MAP.items():
     def _create_create_endpoint(model_cls):
         def endpoint(payload: DimensionValueCreate, db: Session = Depends(get_db)):
             return create_simple_entity(db, model_cls, code=payload.code, name=payload.name, is_active=payload.is_active)
+
         return endpoint
 
     def _create_list_endpoint(model_cls):
         def endpoint(db: Session = Depends(get_db)):
             return list(db.scalars(select(model_cls).order_by(model_cls.code)))
+
         return endpoint
 
     router.post(f"/{path}", response_model=DimensionValueRead, status_code=201)(_create_create_endpoint(model))
@@ -121,11 +132,13 @@ for path, model in SUBLEDGER_ENDPOINT_MAP.items():
     def _create_create_endpoint(model_cls):
         def endpoint(payload: SubledgerCreate, db: Session = Depends(get_db)):
             return create_subledger_entity(db, model_cls, code=payload.code, name=payload.name, is_active=payload.is_active)
+
         return endpoint
 
     def _create_list_endpoint(model_cls):
         def endpoint(db: Session = Depends(get_db)):
             return list_subledger_entities(db, model_cls)
+
         return endpoint
 
     router.post(f"/{path}", response_model=SubledgerRead, status_code=201)(_create_create_endpoint(model))
@@ -167,6 +180,19 @@ def generate_account_code_endpoint(parent_id: int, db: Session = Depends(get_db)
     code = generate_next_account_code(db, parent_id)
     return AccountCodeGenerateResponse(code=code)
 
+@router.get("/accounts/search", response_model=list[AccountRead])
+def search_accounts_endpoint(
+    q: str = Query(..., min_length=1, description="Partial code or name to search for"),
+    limit: int = 10,
+    db: Session = Depends(get_db),
+) -> list[Account]:
+    """Search accounts by code or name.
+
+    Returns a limited list of accounts whose code, Arabic name or English name contains the given query.
+    """
+    return search_accounts(db, q, limit)
+
+
 
 @router.get("/accounts/{account_id}", response_model=AccountRead)
 def get_account_endpoint(account_id: int, db: Session = Depends(get_db)):
@@ -181,6 +207,8 @@ def update_account_endpoint(account_id: int, payload: AccountUpdate, db: Session
 @router.put("/accounts/{account_id}/rules", response_model=AccountRead)
 def update_account_rules_endpoint(account_id: int, payload: AccountRulesUpdate, db: Session = Depends(get_db)):
     return update_account_rules(db, account_id, payload)
+
+
 
 
 @router.post("/fiscal-years", response_model=FiscalYearRead, status_code=201)
